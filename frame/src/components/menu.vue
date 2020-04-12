@@ -56,7 +56,6 @@ export default {
   },
   methods: {
     initSubmenu(router) {
-      console.log(this.menuRouter)
       this.activeMenu = router.path;
     },
   },
