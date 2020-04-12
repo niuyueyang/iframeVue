@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 const state = {
   user: {
-    username: '胖大人本胖',
+    username: '牛越洋',
   },
   menuRouter,
 };
