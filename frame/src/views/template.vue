@@ -37,11 +37,13 @@ export default {
       if (data.source !== 'content') {
         return;
       }
+      console.log(action)
       const { action } = data;
       if (action === 'methodRun') {
         // 子级调用父级方法, 可以考虑是否可以接收数组, 一次调用多个方法, 方法是顺序执行, 还是Promise.all并行, 调用多个方法,参数如何接收
         // 子级要调用那个组件的方法等, 多预留扩展接口
         const { funName, params = undefined } = data;
+        console.log(funName)
         this[funName](params);
       }
     },
@@ -58,7 +60,6 @@ export default {
       const {
         meta: { orgin },
       } = this.$route;
-      console.log(msg, origin)
       content.postMessage(msg, orgin);
     },
     postMsg() {
@@ -66,15 +67,16 @@ export default {
       this.init();
     },
     init() {
-      console.log('测试是否打印');
       const {
         path,
         name,
         meta: { orgin, pathName },
       } = this.$route;
       if (this.src === `${orgin}${pathName}`) {
+        console.log(111)
         this.sendmessage({ path, name });
       } else {
+        console.log(222)
         this.src = `${orgin}${pathName}`;
       }
     },

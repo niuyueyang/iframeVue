@@ -79,6 +79,7 @@ export default {
       }
       return 'doing-row';
     },
+
     getTableData() {
       const { tableData } = this.Mock.mock({
         'tableData|20': [
@@ -115,6 +116,10 @@ export default {
       });
       this.tableData = tableData;
     },
+
+    /*
+     * @desc 弹窗关闭，向父级iframe发送信息
+     * */
     handleClose() {
       top.postMessage(
         {
@@ -126,6 +131,10 @@ export default {
       );
       this.dialogVisible = false;
     },
+
+    /*
+     * @desc 弹窗打开，向父级iframe发送信息（由searchRow create方法发送）
+     * */
     openDialog() {
       this.dialogVisible = true;
       top.postMessage(
